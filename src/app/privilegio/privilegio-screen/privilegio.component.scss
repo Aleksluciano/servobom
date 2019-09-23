@@ -1,0 +1,32 @@
+
+.mat-card {
+    width: 300px;
+    justify-content: center;
+    border-top-left-radius: 10%;
+    margin-top: 10px;
+  }
+  
+  .container {
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly
+  }
+
+  mat-card-actions {
+    text-align: end;
+    .material-icons {
+        vertical-align:top;
+    }
+  }
+
+
+
+li {
+    list-style: none;
+}
+
+.matBadge {
+    margin-left: 20px
+}
+

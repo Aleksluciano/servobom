@@ -1,0 +1,29 @@
+
+.mat-card {
+    width: 300px;
+    height: 100px;
+    margin: 2%;
+    background-color: rgb(153, 153, 144);
+    text-align: center;
+    border-radius: 10%;
+
+}
+
+mat-card-header {
+    justify-content: center;
+}
+.container {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.back-arrow {
+    margin-left: 60px;
+}
+
+p {
+
+    text-align: center;
+}
