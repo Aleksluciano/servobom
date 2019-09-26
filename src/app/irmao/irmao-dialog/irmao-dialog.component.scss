@@ -1,0 +1,27 @@
+
+mat-form-field {
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+li {
+  list-style: none;
+ 
+}
+
+
+.card {
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+text-align: left;
+flex-wrap: wrap;
+
+}
+
+.mat-card-header, .privilegio-card {
+  text-align: left;
+}

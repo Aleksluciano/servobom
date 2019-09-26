@@ -1,11 +1,10 @@
-import { browser } from 'protractor';
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-priv-dialog',
   template: `
-    <h1 mat-dialog-title>Criar privilégio - {{ data.privi.dia }}</h1>
+    <h1 mat-dialog-title>{{ data.isNew ? 'Criar' : 'Editar' }} privilégio - {{ data.privi.dia }}</h1>
     <div mat-dialog-content>
       <mat-form-field>
         <input

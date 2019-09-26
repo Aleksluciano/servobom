@@ -1,0 +1,62 @@
+<h1 mat-dialog-title>{{ data.isNew ? 'Criar' : 'Editar' }} irmão {{ data.irmao.name}}</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input type="text" placeholder="Nome" matInput [(ngModel)]="data.irmao.name" [minLength]="3" />
+  </mat-form-field>
+  <div class="card">
+    <mat-card id="privilegio-card" *ngFor="let item of data.irmao.privilegios">
+      <mat-card-header>
+        <mat-card-title>{{ item?.nameDia }}</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <ul>
+          <li *ngFor="let item2 of item?.privilegio">
+            <!-- [ngStyle]="{'background-color': findPrivilegio(item2.id) ? 'green' : ''}"> -->
+            <mat-checkbox [(ngModel)]="item2.existe">{{ item2.name }}</mat-checkbox>
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Última participação" [(ngModel)]="item2.data">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </li>
+
+        </ul>
+      </mat-card-content>
+
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-card>
+    <div>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Data de Compromissos(não escalar nestes dias)">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <button mat-mini-fab (click)="addCompromisso(picker)">
+            <mat-icon>add</mat-icon>
+          </button>
+        <ul>
+          <li *ngFor="let item3 of data.irmao.compromisso; let i=index"> Compromisso {{ i + 1 }}:
+            {{ item3 | date: 'dd/MM/yyyy' }}
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button [disabled]="!data.irmao.name" mat-button [mat-dialog-close]="{
+      irmao: {
+        id: data.irmao.id || '',
+        name: data.irmao.name,
+        privilegios: data.irmao.privilegios,
+        compromisso: data.irmao.compromisso
+      },
+      isNew: data.isNew
+    }">
+    {{ data.isNew ? "Criar" : "Salvar" }}
+  </button>
+</div>

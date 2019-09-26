@@ -51,7 +51,7 @@ export class PrivilegioComponent implements OnInit, OnDestroy {
   }
 
   openDialog(name: string, item?: Privilegio ): void {
- 
+
     const dialogRef = this.dialog.open(PrivDialogComponent, {
       width: '500px',
       data: item ? { privi: { ...item }, isNew: false } : { privi: { name: '', nivel: '', dia: name } as Privilegio , isNew: true }
@@ -97,7 +97,7 @@ export class PrivilegioComponent implements OnInit, OnDestroy {
         this.privilegioService.deletePrivilegio(privilegioId);
       }
     });
-   
+
   }
 
   ngOnDestroy() {

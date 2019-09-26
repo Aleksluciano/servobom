@@ -24,6 +24,11 @@ const routes: Routes = [
     path: 'privilegio',
     loadChildren: () => import('./privilegio/privilegio.module').then(m => m.PrivilegioModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'irmao',
+    loadChildren: () => import('./irmao/irmao.module').then(m => m.IrmaoModule),
+    canActivate: [AuthGuard]
   }
 ];
 
